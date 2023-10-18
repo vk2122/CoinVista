@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <algorithm>
+#include <vector>
 
 using namespace std;
 
@@ -51,6 +51,7 @@ void wallet()
 {
     cout << "Wallet Status" << endl;
 }
+
 void exitProgram()
 {
     cout << "Exiting the program..." << endl;
@@ -89,6 +90,18 @@ void menuFunctionality(int userOption)
 
 int main()
 {
+    enum class OrderBookType
+    {
+        bid,
+        ask
+    };
+
+    vector<double> prices;
+    vector<double> amounts;
+    vector<string> timestamps;
+    vector<string> products;
+    vector<OrderBookType> orderTypes;
+
     while (true)
     {
         printMenu();
@@ -96,6 +109,5 @@ int main()
         cout << "You selected: " << userOption << endl;
         menuFunctionality(userOption);
     }
-
     return 0;
 }
